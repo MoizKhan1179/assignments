@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <script>
+// Ques3
+let Company = []
+    class Car{
+        constructor (make, model, year, ){
+            this.make = make,
+            this.model = model,
+            this.year = year
+        }
+    
+    }
+    let CarsInfo = new Car("Toyota", "TwinTurbo", "2002")
+    console.log(CarsInfo)
+
+ for (const CarsInfo in Car) {
+    if (Object.hasOwnProperty.call(CarsInfo, Car)) {
+        const element = [Car, CarsInfo];
+    }
+    console.log(element)
+ }
+// Ques3
+
+
+
+// Ques5
+class Madrid {
+    constructor(){
+        this.fname = "Benzema",
+        this.lname = "Karim",
+        this.age = 24
+    }
+}
+
+class Real extends Madrid {
+        constructor(fname, lname, age, designation){
+            super(fname, lname, age)
+            this.designation = "Striker"
+        }
+}
+
+let club = new Real ()
+console.log(club)
+console.log(club instanceof Madrid) 
+// Ques5
+
+
+// Ques4
+let names = ["Arham","Shayan","Moiz","Fariz"]
+
+console.log(names.sort())
+// Ques4
+
+
+
+
+
+// Ques2
+
+let a = (Math.round(Math.random()*100))
+let b = (Math.round(Math.random()*100))
+const sumEven1 = (a+b)
+document.write(sumEven1)
+
+
+// Ques2
+
+
+// Ques1
+let num = [1,2,3,4,5,6,7,8,9,10]
+const sumEven = () => {
+    let sum=0;
+    
+}
+// Ques1
+    </script>
+</body>
+</html>
