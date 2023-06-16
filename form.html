@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+</head>
+<body>
+    <style>
+        .error {
+          color: red;
+        }
+      </style>
+       <h2>User Registration Form</h2>
+       <form id="registrationForm" onsubmit="validateForm(event)">
+         <label for="username">Username:</label>
+         <input type="text" id="username" name="username" required>
+         <br>
+         <label for="email">Email:</label>
+         <input type="email" id="email" name="email" required>
+         <br>
+         <label for="password">Password:</label>
+         <input type="password" id="password" name="password" required>
+         <br>
+         <label for="confirmPassword">Confirm Password:</label>
+         <input type="password" id="confirmPassword" name="confirmPassword" required>
+         <br>
+         <input type="submit" value="Register">
+       </form>
+     
+       <script>
+         function validateForm(event) {
+           event.preventDefault(); // Prevent form submission
+     
+           // Regular expressions for validation
+           var usernameRegex = /^[a-zA-Z0-9_]{4,20}$/;
+           var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+           var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+     
+           // Get form values
+           var username = document.getElementById('username').value;
+           var email = document.getElementById('email').value;
+           var password = document.getElementById('password').value;
+           var confirmPassword = document.getElementById('confirmPassword').value;
+     
+           // Validation
+           var errors = [];
+     
+           if (!usernameRegex.test(username)) {
+             errors.push('Username must be 4-20 characters long and can only contain letters, numbers, and underscores.');
+           }
+     
+           if (!emailRegex.test(email)) {
+             errors.push('Invalid email address.');
+           }
+     
+           if (!passwordRegex.test(password)) {
+             errors.push('Password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter.');
+           }
+     
+           if (password !== confirmPassword) {
+             errors.push('Passwords do not match.');
+           }
+     
+           // Display errors or submit form
+           if (errors.length > 0) {
+             var errorContainer = document.createElement('div');
+             errorContainer.className = 'error';
+             errorContainer.innerHTML = errors.join('<br>');
+             document.getElementById('registrationForm').appendChild(errorContainer);
+           } else {
+             document.getElementById('registrationForm').submit();
+           }
+         }
+       </script>
+</body>
+</html>
